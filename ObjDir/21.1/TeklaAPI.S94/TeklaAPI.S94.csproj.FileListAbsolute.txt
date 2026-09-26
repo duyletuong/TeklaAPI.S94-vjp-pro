@@ -1,0 +1,11 @@
+D:\Tekla API Course\Projects\TeklaAPI.S94\TeklaAPI.S94\bin\Debug\TeklaAPI.S94.dll
+D:\Tekla API Course\Projects\TeklaAPI.S94\TeklaAPI.S94\bin\Debug\TeklaAPI.S94.pdb
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\TeklaAPI.S94\TeklaAPI.S94.csproj.AssemblyReference.cache
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\TeklaAPI.S94\TeklaAPI.S94.MainForm.resources
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\TeklaAPI.S94\TeklaAPI.S94.csproj.GenerateResource.cache
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\TeklaAPI.S94\TeklaAPI.S94.csproj.CoreCompileInputs.cache
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\TeklaAPI.S94\TeklaAPI.S94.csproj.CopyComplete
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\TeklaAPI.S94\TeklaAPI.S94.dll
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\TeklaAPI.S94\TeklaAPI.S94.pdb
+D:\Tekla API Course\Projects\TeklaAPI.S94\TeklaAPI.S94\bin\Debug\DLT.Plugin.Core.dll
+D:\Tekla API Course\Projects\TeklaAPI.S94\TeklaAPI.S94\bin\Debug\DLT.Plugin.Core.pdb

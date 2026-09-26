@@ -1,0 +1,6 @@
+D:\Tekla API Course\Projects\TeklaAPI.S94\DLT.Plugin.Core\bin\Debug\DLT.Plugin.Core.dll
+D:\Tekla API Course\Projects\TeklaAPI.S94\DLT.Plugin.Core\bin\Debug\DLT.Plugin.Core.pdb
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.csproj.AssemblyReference.cache
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.csproj.CoreCompileInputs.cache
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.dll
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.pdb
