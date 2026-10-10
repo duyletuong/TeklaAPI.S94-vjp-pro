@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DLT.Plugin.Core.Dialog;
 
-namespace DLT.Plugin.Core
+namespace PurlinToPurlin
 {
-    public class Class1
+    internal class StructuresData : ConnectionDataBase
     {
 
     }

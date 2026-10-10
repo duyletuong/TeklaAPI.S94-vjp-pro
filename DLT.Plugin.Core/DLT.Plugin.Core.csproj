@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5F3C2D9-213E-4AA7-AFF5-454B381EE9C8}</ProjectGuid>
+    <ProjectGuid>{B8F906B8-75F4-4E86-839E-134A99047CA3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DLT.Plugin.Core</RootNamespace>
@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,15 +82,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BoltCreation\BoltCreator.cs" />
+    <Compile Include="BoltCreation\BoltDistConverter.cs" />
+    <Compile Include="BoltCreation\BoltProperties.cs" />
+    <Compile Include="CheckBoxGroup.cs" />
+    <Compile Include="Dialog\DefaultAttribute.cs" />
+    <Compile Include="Dialog\DialogDefaults.cs" />
+    <Compile Include="Dialog\StructuresDataBase.cs" />
+    <Compile Include="Extension\GeometryPlaneExtension.cs" />
+    <Compile Include="Extension\SolidEdgeExtension.cs" />
+    <Compile Include="Extension\SolidExtension.cs" />
+    <Compile Include="PartCreation\BeamCreator.cs" />
+    <Compile Include="PartCreation\ContourPlateCreator.cs" />
+    <Compile Include="PartCreation\PartProperties.cs" />
+    <Compile Include="Enum\ConnectTypeEnum.cs" />
+    <Compile Include="Enum\PlateSideEnum.cs" />
+    <Compile Include="Enum\SlotsInEnum.cs" />
+    <Compile Include="Extension\DoubleExtension.cs" />
+    <Compile Include="Extension\IEnumeratorExtension.cs" />
+    <Compile Include="Extension\CoordinateSystemExtension.cs" />
+    <Compile Include="Extension\LineSegmentExtension.cs" />
+    <Compile Include="Extension\PartExtension.cs" />
+    <Compile Include="Extension\PlaneExtension.cs" />
     <Compile Include="Extension\PointExtension.cs" />
+    <Compile Include="Extension\VectorExtension.cs" />
+    <Compile Include="FittingPlaneHandler.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="PartCreation\PolyBeamCreator.cs" />
+    <Compile Include="PluginInputInfo.cs" />
+    <Compile Include="ProfileReport\ProfileReportC.cs" />
+    <Compile Include="ProfileReport\ProfileReportD.cs" />
+    <Compile Include="ProfileReport\ProfileReportGeneral.cs" />
+    <Compile Include="ProfileReport\ProfileReportHI.cs" />
+    <Compile Include="ProfileReport\ProfileReportP.cs" />
+    <Compile Include="ProfileReport\ProfileReportPlate.cs" />
+    <Compile Include="ProfileReport\ProfileReportBase.cs" />
+    <Compile Include="ProfileReport\ProfileReportRHS.cs" />
+    <Compile Include="ProfileReport\ProfileReportSHS.cs" />
+    <Compile Include="ProfileReport\ProfileReportU.cs" />
+    <Compile Include="ProfileReport\ProfileReportZ.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WeldCreator\WeldCreator.cs" />
+    <Compile Include="WeldCreator\WeldProperties.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CreateBeam\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

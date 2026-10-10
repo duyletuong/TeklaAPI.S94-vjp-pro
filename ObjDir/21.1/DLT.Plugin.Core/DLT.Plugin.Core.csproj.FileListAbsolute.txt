@@ -4,3 +4,5 @@ D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin
 D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.csproj.CoreCompileInputs.cache
 D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.dll
 D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.pdb
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.Properties.Resources.resources
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\DLT.Plugin.Core\DLT.Plugin.Core.csproj.GenerateResource.cache

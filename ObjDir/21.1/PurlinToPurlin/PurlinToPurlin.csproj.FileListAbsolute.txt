@@ -1,0 +1,12 @@
+D:\Tekla API Course\Projects\TeklaAPI.S94\PurlinToPurlin\bin\Debug\PurlinToPurlin.dll
+D:\Tekla API Course\Projects\TeklaAPI.S94\PurlinToPurlin\bin\Debug\PurlinToPurlin.pdb
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPurlin.csproj.AssemblyReference.cache
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\My_Vip_pro_PurlinConnection.resources
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPurlin.csproj.GenerateResource.cache
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPurlin.csproj.CoreCompileInputs.cache
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPurlin.dll
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPurlin.pdb
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPurlin.Properties.Resources.resources
+D:\Tekla API Course\Projects\TeklaAPI.S94\PurlinToPurlin\bin\Debug\DLT.Plugin.Core.dll
+D:\Tekla API Course\Projects\TeklaAPI.S94\PurlinToPurlin\bin\Debug\DLT.Plugin.Core.pdb
+D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPurlin.csproj.CopyComplete

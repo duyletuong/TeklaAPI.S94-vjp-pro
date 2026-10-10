@@ -109,12 +109,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DLT.Plugin.Core\DLT.Plugin.Core.csproj">
-      <Project>{a5f3c2d9-213e-4aa7-aff5-454b381ee9c8}</Project>
-      <Name>DLT.Plugin.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
