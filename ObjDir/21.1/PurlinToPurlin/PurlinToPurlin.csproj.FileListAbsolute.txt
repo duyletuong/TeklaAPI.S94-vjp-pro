@@ -10,3 +10,5 @@ D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPur
 D:\Tekla API Course\Projects\TeklaAPI.S94\PurlinToPurlin\bin\Debug\DLT.Plugin.Core.dll
 D:\Tekla API Course\Projects\TeklaAPI.S94\PurlinToPurlin\bin\Debug\DLT.Plugin.Core.pdb
 D:\Tekla API Course\Projects\TeklaAPI.S94\ObjDir\21.1\PurlinToPurlin\PurlinToPurlin.csproj.CopyComplete
+D:\Tekla\21.1\nt\bin\plugins\Test\PurlinToPurlin.dll
+D:\Tekla\21.1\nt\bin\plugins\Test\PurlinToPurlin.pdb

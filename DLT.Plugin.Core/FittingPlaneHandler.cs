@@ -20,10 +20,9 @@ namespace DLT.Plugin.Core
         private FittingType vFitting;
         private FittingType hFitting;
         private const double DEFAULT_VECTOR_LENGTH = 400;
-        private bool isCutting;
 
         public FittingPlaneHandler(PluginInputInfo primary, PluginInputInfo secon, FittingPosition fittingPosition,
-            double gapLength, FittingType vFitting = FittingType.Othor, FittingType hFitting = FittingType.Othor, double? partCutOffset = null, bool isCutting = false)
+            double gapLength, FittingType vFitting = FittingType.Perpendicular, FittingType hFitting = FittingType.Perpendicular, double? partCutOffset = null)
         {
             this.primary = primary;
             this.secon = secon;
@@ -33,7 +32,6 @@ namespace DLT.Plugin.Core
             this.gapLength = gapLength;
             this.partCutOffSet = partCutOffset;
             this.fittingSide = GetFittingSide();
-            this.isCutting = isCutting;
         }
 
         /// <summary>
@@ -99,7 +97,7 @@ namespace DLT.Plugin.Core
 
         private Plane GetGapPlane()
         {
-            double offsetX = this.fittingPosition == FittingPosition.ByComponent
+            double offsetX = this.fittingPosition == FittingPosition.ByBoxPlane
                                                   ? this.gapLength
                                                   : this.primary.GetSolid().MaximumPoint.X + this.gapLength;
 
@@ -324,13 +322,13 @@ namespace DLT.Plugin.Core
 
     public enum FittingPosition
     {
-        ByComponent,
-        BySolid
+        ByCollisionPlane,
+        ByBoxPlane
     }
 
     public enum FittingType
     {
-        Othor,
+        Perpendicular,
         Parallel,
         PartCut
     }

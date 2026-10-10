@@ -8,6 +8,7 @@ using Tekla.Structures.Dialog;
 using DLT.Plugin.Core;
 using DLT.Plugin.Core.PartCreation;
 using Tekla.Structures.Model;
+using DLT.Plugin.Core.Dialog;
 
 namespace PurlinToPurlin
 {
@@ -24,25 +25,32 @@ namespace PurlinToPurlin
 
     public class My_Vip_pro_PurlinConnection : ConnectionBase
     {
+        private readonly StructuresData data;
+        private Model Model = new Model();
+        PluginInputInfo primaryInput;
+        PluginInputInfo secondaryInput;
+
+        public My_Vip_pro_PurlinConnection(StructuresData structuresData)
+        {
+            this.data = structuresData.ApplyDefaults();
+        }
+
         public override bool Run()
         {
             try
             {
-                new BeamCreator(new Tekla.Structures.Geometry3d.Point(),
-                            new Tekla.Structures.Geometry3d.Point(1000, 0, 0),
-                            GetMainBeamProperty())
-                .CreateInstance();
+                //lay main part nguoi dung pick
+                Beam mainPart = Model.SelectModelObject(base.Primary) as Beam;
+                Beam secondaryPart = Model.SelectModelObject(base.Secondaries[0]) as Beam;
 
-                new BeamCreator(new Tekla.Structures.Geometry3d.Point(),
-                                new Tekla.Structures.Geometry3d.Point(0, 1000, 0),
-                                GetSeconBeamProperty())
-                    .CreateInstance();
+                this.primaryInput = new PluginInputInfo(mainPart);
+                this.secondaryInput = new PluginInputInfo(secondaryPart);
 
-                new BeamCreator(new Tekla.Structures.Geometry3d.Point(),
-                                new Tekla.Structures.Geometry3d.Point(0, 0, 1000),
-                                GetThirdBeamProperty())
-                    .CreateInstance();
+                Fitting fitting = CreateFitting();
 
+
+
+                CreateDummyParts();
                 return true;
             }
             catch (Exception e)
@@ -52,12 +60,64 @@ namespace PurlinToPurlin
             }
         }
 
+        private void CreateDummyParts()
+        {
+            new BeamCreator(new Tekla.Structures.Geometry3d.Point(),
+                            new Tekla.Structures.Geometry3d.Point(1000, 0, 0),
+                            GetMainBeamProperty())
+                .CreateInstance();
+
+            new BeamCreator(new Tekla.Structures.Geometry3d.Point(),
+                            new Tekla.Structures.Geometry3d.Point(0, 1000, 0),
+                            GetSeconBeamProperty())
+                .CreateInstance();
+
+            new BeamCreator(new Tekla.Structures.Geometry3d.Point(),
+                            new Tekla.Structures.Geometry3d.Point(0, 0, 1000),
+                            GetThirdBeamProperty())
+                .CreateInstance();
+        }
+
+        private Fitting CreateFitting()
+        {
+            FittingPlaneHandler fittingPlaneHandler = new FittingPlaneHandler(
+                primaryInput,
+                secondaryInput,
+                GetFittingPosFromDialog(),
+                data.gap,
+                GetFittingTypeFromDialog(),
+                GetFittingTypeFromDialog());
+
+            return fittingPlaneHandler.CreateFitting();
+
+            FittingPosition GetFittingPosFromDialog()
+            {
+                System.Windows.Forms.MessageBox.Show(data.fittingPosition.ToString());
+                if (data.fittingPosition == 0)
+                {
+                    return FittingPosition.ByBoxPlane;
+                }
+
+                return FittingPosition.ByCollisionPlane;
+            }
+
+            FittingType GetFittingTypeFromDialog()
+            {
+                if (data.fittingType == 0)
+                {
+                    return FittingType.Perpendicular;
+                }
+
+                return FittingType.Parallel;
+            }
+        }
+
         private PartProperties GetMainBeamProperty()
         {
             return new PartProperties
             {
                 Profile = "PL10*200",
-                Material = "SS400",
+                Material = "S235JR",
                 PartNumber = new NumberingSeries { Prefix = "p", StartNumber = 1},
                 AssemblyNumber = new NumberingSeries("A", 1),
                 Position = new Tekla.Structures.Model.Position(),
@@ -72,7 +132,7 @@ namespace PurlinToPurlin
             return new PartProperties
             {
                 Profile = "PL10*200",
-                Material = "SS400",
+                Material = "S235JR",
                 PartNumber = new NumberingSeries { Prefix = "p", StartNumber = 1 },
                 AssemblyNumber = new NumberingSeries("A", 1),
                 Position = new Tekla.Structures.Model.Position(),
@@ -87,7 +147,7 @@ namespace PurlinToPurlin
             return new PartProperties
             {
                 Profile = "PL10*200",
-                Material = "SS400",
+                Material = "S235JR",
                 PartNumber = new NumberingSeries { Prefix = "p", StartNumber = 1 },
                 AssemblyNumber = new NumberingSeries("A", 1),
                 Position = new Tekla.Structures.Model.Position(),

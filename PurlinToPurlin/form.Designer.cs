@@ -26,11 +26,18 @@
     /// </summary>
     private void InitializeComponent()
     {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(My_Vip_pro_PurlinConnection));
             this.saveLoad1 = new Tekla.Structures.Dialog.UIControls.SaveLoad();
             this.okApplyModifyGetOnOffCancel1 = new Tekla.Structures.Dialog.UIControls.OkApplyModifyGetOnOffCancel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -57,7 +64,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.imageListComboBox1 = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
+            this.imgListCuttingType = new System.Windows.Forms.ImageList(this.components);
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +87,7 @@
             this.saveLoad1.Location = new System.Drawing.Point(0, 0);
             this.saveLoad1.Name = "saveLoad1";
             this.saveLoad1.SaveAsText = "";
-            this.saveLoad1.Size = new System.Drawing.Size(774, 43);
+            this.saveLoad1.Size = new System.Drawing.Size(633, 43);
             this.saveLoad1.TabIndex = 0;
             this.saveLoad1.UserDefinedHelpFilePath = null;
             // 
@@ -85,10 +97,16 @@
             this.structuresExtender.SetAttributeTypeName(this.okApplyModifyGetOnOffCancel1, null);
             this.structuresExtender.SetBindPropertyName(this.okApplyModifyGetOnOffCancel1, null);
             this.okApplyModifyGetOnOffCancel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.okApplyModifyGetOnOffCancel1.Location = new System.Drawing.Point(0, 547);
+            this.okApplyModifyGetOnOffCancel1.Location = new System.Drawing.Point(0, 451);
             this.okApplyModifyGetOnOffCancel1.Name = "okApplyModifyGetOnOffCancel1";
-            this.okApplyModifyGetOnOffCancel1.Size = new System.Drawing.Size(774, 29);
+            this.okApplyModifyGetOnOffCancel1.Size = new System.Drawing.Size(633, 29);
             this.okApplyModifyGetOnOffCancel1.TabIndex = 1;
+            this.okApplyModifyGetOnOffCancel1.OkClicked += new System.EventHandler(this.okApplyModifyGetOnOffCancel1_OkClicked);
+            this.okApplyModifyGetOnOffCancel1.ApplyClicked += new System.EventHandler(this.okApplyModifyGetOnOffCancel1_ApplyClicked);
+            this.okApplyModifyGetOnOffCancel1.ModifyClicked += new System.EventHandler(this.okApplyModifyGetOnOffCancel1_ModifyClicked);
+            this.okApplyModifyGetOnOffCancel1.GetClicked += new System.EventHandler(this.okApplyModifyGetOnOffCancel1_GetClicked);
+            this.okApplyModifyGetOnOffCancel1.OnOffClicked += new System.EventHandler(this.okApplyModifyGetOnOffCancel1_OnOffClicked);
+            this.okApplyModifyGetOnOffCancel1.CancelClicked += new System.EventHandler(this.okApplyModifyGetOnOffCancel1_CancelClicked);
             // 
             // tabControl1
             // 
@@ -102,7 +120,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 49);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(750, 492);
+            this.tabControl1.Size = new System.Drawing.Size(621, 396);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -110,13 +128,98 @@
             this.structuresExtender.SetAttributeName(this.tabPage1, null);
             this.structuresExtender.SetAttributeTypeName(this.tabPage1, null);
             this.structuresExtender.SetBindPropertyName(this.tabPage1, null);
+            this.tabPage1.Controls.Add(this.imageListComboBox1);
+            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.checkBox2);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.checkBox3);
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.textBox7);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(742, 466);
+            this.tabPage1.Size = new System.Drawing.Size(613, 370);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.structuresExtender.SetAttributeName(this.comboBox2, "fitPos");
+            this.structuresExtender.SetAttributeTypeName(this.comboBox2, "Integer");
+            this.structuresExtender.SetBindPropertyName(this.comboBox2, "SelectedIndex");
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "By box",
+            "By collision plane"});
+            this.comboBox2.Location = new System.Drawing.Point(143, 57);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.structuresExtender.SetAttributeName(this.label3, null);
+            this.structuresExtender.SetAttributeTypeName(this.label3, null);
+            this.label3.AutoSize = true;
+            this.structuresExtender.SetBindPropertyName(this.label3, null);
+            this.label3.Location = new System.Drawing.Point(20, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Fitting type:";
+            // 
+            // checkBox2
+            // 
+            this.structuresExtender.SetAttributeName(this.checkBox2, "cuttingType");
+            this.structuresExtender.SetAttributeTypeName(this.checkBox2, null);
+            this.checkBox2.AutoSize = true;
+            this.structuresExtender.SetBindPropertyName(this.checkBox2, null);
+            this.structuresExtender.SetIsFilter(this.checkBox2, true);
+            this.checkBox2.Location = new System.Drawing.Point(122, 111);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.structuresExtender.SetAttributeName(this.label1, null);
+            this.structuresExtender.SetAttributeTypeName(this.label1, null);
+            this.label1.AutoSize = true;
+            this.structuresExtender.SetBindPropertyName(this.label1, null);
+            this.label1.Location = new System.Drawing.Point(20, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Gap";
+            // 
+            // checkBox1
+            // 
+            this.structuresExtender.SetAttributeName(this.checkBox1, "gap");
+            this.structuresExtender.SetAttributeTypeName(this.checkBox1, null);
+            this.checkBox1.AutoSize = true;
+            this.structuresExtender.SetBindPropertyName(this.checkBox1, null);
+            this.structuresExtender.SetIsFilter(this.checkBox1, true);
+            this.checkBox1.Location = new System.Drawing.Point(122, 26);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // textBox7
+            // 
+            this.structuresExtender.SetAttributeName(this.textBox7, "gap");
+            this.structuresExtender.SetAttributeTypeName(this.textBox7, "Distance");
+            this.structuresExtender.SetBindPropertyName(this.textBox7, "Text");
+            this.textBox7.Location = new System.Drawing.Point(143, 23);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(67, 20);
+            this.textBox7.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -126,7 +229,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(742, 466);
+            this.tabPage2.Size = new System.Drawing.Size(613, 370);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Bolt";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -138,7 +241,7 @@
             this.structuresExtender.SetBindPropertyName(this.tabPage3, null);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(742, 466);
+            this.tabPage3.Size = new System.Drawing.Size(613, 370);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Cut";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -173,7 +276,7 @@
             this.tabPage4.Controls.Add(this.label2);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(742, 466);
+            this.tabPage4.Size = new System.Drawing.Size(613, 370);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "General";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -478,6 +581,59 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Up direction";
             // 
+            // imageListComboBox1
+            // 
+            this.structuresExtender.SetAttributeName(this.imageListComboBox1, "cuttingType");
+            this.structuresExtender.SetAttributeTypeName(this.imageListComboBox1, "Integer");
+            this.imageListComboBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.imageListComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.imageListComboBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.structuresExtender.SetBindPropertyName(this.imageListComboBox1, "SelectedIndex");
+            this.imageListComboBox1.DefaultValue = "";
+            this.imageListComboBox1.HoverColor = System.Drawing.Color.DodgerBlue;
+            this.imageListComboBox1.ImageList = this.imgListCuttingType;
+            this.imageListComboBox1.Location = new System.Drawing.Point(143, 111);
+            this.imageListComboBox1.MaximumSize = new System.Drawing.Size(5000, 5000);
+            this.imageListComboBox1.MinimumSize = new System.Drawing.Size(96, 56);
+            this.imageListComboBox1.Name = "imageListComboBox1";
+            this.imageListComboBox1.SelectedIndex = 0;
+            this.imageListComboBox1.SelectedItem = ((object)(resources.GetObject("imageListComboBox1.SelectedItem")));
+            this.imageListComboBox1.Size = new System.Drawing.Size(96, 56);
+            this.imageListComboBox1.TabIndex = 4;
+            this.imageListComboBox1.ToolTipText = "";
+            // 
+            // imgListCuttingType
+            // 
+            this.imgListCuttingType.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgListCuttingType.ImageStream")));
+            this.imgListCuttingType.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgListCuttingType.Images.SetKeyName(0, "PerpenCut.bmp");
+            this.imgListCuttingType.Images.SetKeyName(1, "ParallelCut.bmp");
+            // 
+            // checkBox3
+            // 
+            this.structuresExtender.SetAttributeName(this.checkBox3, "fitPos");
+            this.structuresExtender.SetAttributeTypeName(this.checkBox3, null);
+            this.checkBox3.AutoSize = true;
+            this.structuresExtender.SetBindPropertyName(this.checkBox3, null);
+            this.structuresExtender.SetIsFilter(this.checkBox3, true);
+            this.checkBox3.Location = new System.Drawing.Point(122, 60);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.structuresExtender.SetAttributeName(this.label9, null);
+            this.structuresExtender.SetAttributeTypeName(this.label9, null);
+            this.label9.AutoSize = true;
+            this.structuresExtender.SetBindPropertyName(this.label9, null);
+            this.label9.Location = new System.Drawing.Point(20, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Fitting position";
+            // 
             // My_Vip_pro_PurlinConnection
             // 
             this.structuresExtender.SetAttributeName(this, null);
@@ -485,13 +641,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.structuresExtender.SetBindPropertyName(this, null);
-            this.ClientSize = new System.Drawing.Size(774, 576);
+            this.ClientSize = new System.Drawing.Size(633, 480);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.okApplyModifyGetOnOffCancel1);
             this.Controls.Add(this.saveLoad1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "My_Vip_pro_PurlinConnection";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "form";
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -531,4 +691,14 @@
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.ComboBox comboBox2;
+    private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.CheckBox checkBox2;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.CheckBox checkBox1;
+    private System.Windows.Forms.TextBox textBox7;
+    private Tekla.Structures.Dialog.UIControls.ImageListComboBox imageListComboBox1;
+    private System.Windows.Forms.ImageList imgListCuttingType;
+    private System.Windows.Forms.Label label9;
+    private System.Windows.Forms.CheckBox checkBox3;
 }
