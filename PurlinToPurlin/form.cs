@@ -47,5 +47,10 @@ public partial class My_Vip_pro_PurlinConnection : PluginFormBase
     {
         this.ToggleSelection();
     }
+
+    private void materialCatalog1_SelectionDone(object sender, EventArgs e)
+    {
+        SetAttributeValue(txtMaterial, materialCatalog1.SelectedMaterial);
+    }
 }
 

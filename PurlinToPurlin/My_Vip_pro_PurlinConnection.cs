@@ -9,6 +9,8 @@ using DLT.Plugin.Core;
 using DLT.Plugin.Core.PartCreation;
 using Tekla.Structures.Model;
 using DLT.Plugin.Core.Dialog;
+using Tekla.Structures.Geometry3d;
+using DLT.Plugin.Core.Extension;
 
 namespace PurlinToPurlin
 {
@@ -30,6 +32,10 @@ namespace PurlinToPurlin
         PluginInputInfo primaryInput;
         PluginInputInfo secondaryInput;
 
+        private Beam main;
+        private Beam secon;
+        private Fitting Fitting;
+
         public My_Vip_pro_PurlinConnection(StructuresData structuresData)
         {
             this.data = structuresData.ApplyDefaults();
@@ -40,15 +46,13 @@ namespace PurlinToPurlin
             try
             {
                 //lay main part nguoi dung pick
-                Beam mainPart = Model.SelectModelObject(base.Primary) as Beam;
-                Beam secondaryPart = Model.SelectModelObject(base.Secondaries[0]) as Beam;
+                main = Model.SelectModelObject(base.Primary) as Beam;
+                secon = Model.SelectModelObject(base.Secondaries[0]) as Beam;
 
-                this.primaryInput = new PluginInputInfo(mainPart);
-                this.secondaryInput = new PluginInputInfo(secondaryPart);
+                this.primaryInput = new PluginInputInfo(main);
+                this.secondaryInput = new PluginInputInfo(secon);
 
-                Fitting fitting = CreateFitting();
-
-
+                Fitting = CreateFitting();
 
                 CreateDummyParts();
                 return true;
@@ -58,6 +62,96 @@ namespace PurlinToPurlin
                 Logger.Error(e.Message + Environment.NewLine + e.StackTrace);
                 return false;
             }
+        }
+
+        private Contour ComputeSeconPlateContour()
+        {
+            GeometricPlane centerWeb = null;
+
+            if (secon.GetProfileType() == Tekla.Structures.Catalogs.ProfileItem.ProfileItemTypeEnum.PROFILE_C)
+            {
+                centerWeb = GetWebCenterCPurlinPlane();
+            }
+            else if (secon.GetProfileType() == Tekla.Structures.Catalogs.ProfileItem.ProfileItemTypeEnum.PROFILE_Z)
+            {
+                centerWeb = GetWebCenterZPurlinPlane();
+            }
+
+            if (centerWeb != null)
+            {
+                Point centerCutPlane = Fitting.Plane.Origin;
+                CoordinateSystem seconCoords = secon.GetCoordinateSystem();
+                Point centerP1P2 = centerCutPlane.OffsetAlongVector(FindOffsetVector(), 100);
+
+                Point p1 = centerP1P2.OffsetAlongVector(seconCoords.AxisY, 50);
+                Point p2 = centerP1P2.OffsetAlongVector(seconCoords.AxisY, -50);
+
+
+            }
+
+
+            Vector FindOffsetVector()
+            {
+                CoordinateSystem seconCoords = this.secon.GetCoordinateSystem();
+                if (seconCoords.AxisX.X > 0)
+                {
+                    return seconCoords.AxisX;
+                }
+                else
+                {
+                    return seconCoords.AxisX * -1;
+                }
+            }
+
+            GeometricPlane GetWebCenterZPurlinPlane()
+            {
+                GeometricPlane centerWebPurlin = new GeometricPlane();
+                CoordinateSystem seconCoords = secon.GetCoordinateSystem();
+                Vector normal = seconCoords.AxisX.Cross(seconCoords.AxisY);
+
+                centerWebPurlin.Origin = seconCoords.Origin;
+                centerWebPurlin.Normal = normal;
+
+                return centerWebPurlin;
+            }
+
+            GeometricPlane GetWebCenterCPurlinPlane()
+            {
+
+                GeometricPlane centerWebPurlin = new GeometricPlane();
+                CoordinateSystem seconCoords = secon.GetCoordinateSystem();
+                Vector normal = seconCoords.AxisX.Cross(seconCoords.AxisY);
+
+                double offsetDis = 0;
+                double seconThick = 0;
+                double seconWidth = 0;
+
+                secon.GetReportProperty("PROFILE.PLATE_THICKNESS", ref seconThick);
+                secon.GetReportProperty("PROFILE.WIDTH", ref seconWidth);
+                offsetDis = seconWidth / 2 - seconThick / 2;
+
+                Point origin = seconCoords.Origin.OffsetAlongVector(normal, -offsetDis);
+
+                centerWebPurlin.Origin = origin;
+                centerWebPurlin.Normal = normal;
+
+                return centerWebPurlin;
+            }
+        }
+
+        private PartProperties GetPartProperties()
+        {
+            return new PartProperties
+            {
+                PartNumber = new NumberingSeries { Prefix = data.platePrefix, StartNumber = data.partNum },
+                AssemblyNumber = new NumberingSeries { Prefix = data.assPrefix, StartNumber = data.assNum },
+                Profile = "PL" + data.plateThick,
+                Material = data.plateMaterial,
+                Name = "PLATE",
+                Finish = "",
+                Class = data.plateThick.ToString(),
+                Position = new Position { Depth = Position.DepthEnum.MIDDLE }
+            };
         }
 
         private void CreateDummyParts()

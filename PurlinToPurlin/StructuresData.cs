@@ -18,5 +18,23 @@ namespace PurlinToPurlin
 
         [StructuresField("cuttingType"), Default(0)]
         public int fittingType;
+
+        [StructuresField("plateThick"), Default(10.0)]
+        public double plateThick;
+
+        [StructuresField("platePrefix"), Default("P")]
+        public string platePrefix;
+
+        [StructuresField("assPrefix"), Default("A")]
+        public string assPrefix;
+
+        [StructuresField("partNum"), Default(1)]
+        public int partNum;
+
+        [StructuresField("assNum"), Default(1)]
+        public int assNum;
+
+        [StructuresField("plateMaterial"), Default("S235JR")]
+        public string plateMaterial;
     }
 }
