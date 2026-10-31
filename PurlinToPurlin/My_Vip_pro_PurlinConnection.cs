@@ -89,7 +89,6 @@ namespace PurlinToPurlin
 
             }
 
-
             Vector FindOffsetVector()
             {
                 CoordinateSystem seconCoords = this.secon.GetCoordinateSystem();
